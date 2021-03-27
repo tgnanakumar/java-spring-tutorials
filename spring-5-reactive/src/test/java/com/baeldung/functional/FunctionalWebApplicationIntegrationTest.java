@@ -1,6 +1,6 @@
 package com.baeldung.functional;
 
-import static org.springframework.web.reactive.function.BodyInserters.fromObject;
+import static org.springframework.web.reactive.function.BodyInserters.fromValue;
 import static org.springframework.web.reactive.function.BodyInserters.fromResource;
 
 import org.junit.AfterClass;
@@ -113,7 +113,7 @@ public class FunctionalWebApplicationIntegrationTest {
 
         client.post()
             .uri("/actor")
-            .body(fromObject(new Actor("Clint", "Eastwood")))
+            .body(fromValue(new Actor("Clint", "Eastwood")))
             .exchange()
             .expectStatus()
             .isOk();
